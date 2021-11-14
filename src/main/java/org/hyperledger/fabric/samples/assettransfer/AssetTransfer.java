@@ -251,7 +251,9 @@ public final class AssetTransfer implements ContractInterface {
     @Transaction(intent = Transaction.TYPE.SUBMIT)
     public Asset DuplicateAsset(final Context ctx, final String oldAssetID, final String newAssetID, final String newAssetOwner){
 
+//        getting existing asset
         Asset asset = ReadAsset(ctx, oldAssetID);
+//        creating new asset with same properties and new asset id
         Asset duplicateAsset = CreateAsset(ctx, newAssetID, asset.getColor(), asset.getSize(), newAssetOwner, asset.getAppraisedValue() );
        
         return duplicateAsset;
